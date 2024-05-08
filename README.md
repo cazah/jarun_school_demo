@@ -29,4 +29,24 @@ Sample Input Json :
     "className": "Maths"
 }
 ```
+### - UPDATE STUDENT
+```
+    - PUT - /api/students/{id}
+    - you can pass just what are the fields you want to Update , not necessary to send every feilds.
+```
+```
+Sample Input Json {
+     "name": "Arjun",
+    "dateOfBirth": "01-01-1995",
+    "joiningDate": "10-05-2022",
+    "className": "Maths"
+}
+```
+```
+Sample Input Json {
+    "joiningDate": "10-05-2022",
+    "className": "Maths"
+}
+
+```
 
