@@ -43,13 +43,28 @@ public class StudentController {
     // PUT update existing student
     @PutMapping("/{id}")
     public ResponseEntity<?> updateStudent(@PathVariable Long id, @RequestBody Student updatedStudent) {
-        Optional<Student> student = studentRepository.findById(id);
-        if (student.isPresent()) {
+        Optional<Student> existingStudent = studentRepository.findById(id);
+
+        if (existingStudent.isPresent()) {
+            Student student = existingStudent.get();
             updatedStudent.setId(id); // Ensure the ID is set to the correct value
+            if (updatedStudent.getName() != null) {
+                student.setName(updatedStudent.getName());
+            }
+            if (updatedStudent.getDateOfBirth() != null) {
+                student.setDateOfBirth(updatedStudent.getDateOfBirth());
+            }
+            if (updatedStudent.getJoiningDate() != null) {
+                student.setJoiningDate(updatedStudent.getJoiningDate());
+            }
+            if (updatedStudent.getClassName() != null) {
+                student.setClassName(updatedStudent.getClassName());
+            }
+
             try {
                 // Attempt to update the student
-                studentRepository.save(updatedStudent);
-                return ResponseEntity.ok(updatedStudent);
+                studentRepository.save(student);
+                return ResponseEntity.ok(student);
             } catch (Exception e) {
                 logger.error(e.getMessage());
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating student: " + e.getMessage());
