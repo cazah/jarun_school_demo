@@ -19,6 +19,8 @@ as BASE_URL I saved in Post man collection : http://localhost:8080/api/students
 ### - CREATE STUDENT
 ```
   - POST - /api/students
+```
+```
 Sample Input Json : 
 {
     "name": "Arjun",
