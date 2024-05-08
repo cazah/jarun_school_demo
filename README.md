@@ -29,7 +29,7 @@ Sample Input Json :
     "className": "Maths"
 }
 ```
-### - UPDATE STUDENT
+### - UPDATE STUDENT BY ID
 ```
     - PUT - /api/students/{id}
     - you can pass just what are the fields you want to Update , not necessary to send every feilds.
@@ -48,5 +48,20 @@ Sample Input Json {
     "className": "Maths"
 }
 
+```
+### - DELETE STUDENT BY ID
+```
+    - DELETE - /api/students/{id}
+```
+
+### - RETRIEVE STUDENTS BY THEIR ID, NAME, OR CLASS NAME.
+```
+    - GET - /api/students/{id}
+    - GET - /api/students/{nameOrClassName}
+```
+```
+Sample API call :
+    - /api/students/search/arJun
+    - /api/students/search/3
 ```
 
