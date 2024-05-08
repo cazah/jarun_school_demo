@@ -21,7 +21,7 @@ as BASE_URL I saved in Post man collection : http://localhost:8080/api/students
   - POST - /api/students
 ```
 ```
-####Sample Input Json : 
+Sample Input Json : 
 {
     "name": "Arjun",
     "dateOfBirth": "01-01-1995",
