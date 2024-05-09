@@ -10,6 +10,6 @@ public interface StudentService {
     Student saveStudent(Student student);
     Student getStudentById(Long id);
     Student updateStudent(Long id,Student student);
-    void deleteStudent(Long id);
+    boolean deleteStudent(Long id);
     List<Student> searchStudentsBYIdOrNameOrClassName(String fileterVal);
 }

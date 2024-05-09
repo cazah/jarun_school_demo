@@ -59,8 +59,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void deleteStudent(Long id) {
-        studentRepository.deleteById(id);
+    public boolean deleteStudent(Long id) {
+        if (studentRepository.findById(id).isPresent()) {
+            studentRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
     @Override

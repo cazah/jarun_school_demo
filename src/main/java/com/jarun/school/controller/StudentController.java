@@ -53,15 +53,8 @@ public class StudentController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteStudent(@PathVariable Long id) {
         logger.info("Deleting Student By Id ", id);
-        Student student = studentService.getStudentById(id);
-        if (student != null) {
-            studentService.deleteStudent(id);
-            return ResponseEntity.ok("Student DELETED Successfully !");
-        } else {
-            logger.error(HttpStatus.NOT_FOUND.toString()," No Student Found for Given Student ID !");
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body("No Student Found for Given Student ID !");
-        }
+        return (studentService.deleteStudent(id))? ResponseEntity.ok("Student DELETED Successfully !") : ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body("No Student Found for Given Student ID !");
     }
 
     @GetMapping("/search/{filterValue}")
